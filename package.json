@@ -1,0 +1,45 @@
+{
+  "name": "node-checkpoint",
+  "version": "0.1.0",
+  "description": "Lightweight SQL migration runner for PostgreSQL and MySQL",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "checkpoint": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "migrations",
+    "postgres",
+    "mysql",
+    "database",
+    "sql",
+    "migration-tool",
+    "schema",
+    "rails-migrations"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/node-checkpoint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/node-checkpoint/issues"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.11.3",
+    "mysql2": "^3.6.5",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "src/**/*.js",
+    "README.md",
+    "LICENSE"
+  ]
+}
