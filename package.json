@@ -8,7 +8,10 @@
     "checkpoint": "src/cli.js"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "node test/basic.test.js && node test/integration.test.js",
+    "test:unit": "node test/basic.test.js",
+    "test:integration": "node test/integration.test.js",
+    "test:docker": "docker-compose -f docker-compose.test.yml up -d && sleep 5 && npm test; docker-compose -f docker-compose.test.yml down"
   },
   "keywords": [
     "migrations",

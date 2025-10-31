@@ -265,10 +265,49 @@ If a migration fails:
 - The migration is not recorded as executed
 - You can fix the migration and run `checkpoint up` again
 
+## Testing
+
+node-checkpoint includes comprehensive unit and integration tests.
+
+### Quick Test (with Docker)
+
+```bash
+# One command to run all tests
+./test-quick-start.sh
+
+# Or use npm script
+npm run test:docker
+```
+
+This will:
+1. Start PostgreSQL and MySQL test databases in Docker
+2. Run all tests
+3. Clean up automatically
+
+### Manual Testing
+
+```bash
+# Start test databases
+docker-compose -f docker-compose.test.yml up -d
+
+# Run all tests
+npm test
+
+# Or run specific test suites
+npm run test:unit         # Unit tests only
+npm run test:integration  # Integration tests (requires databases)
+
+# Stop databases
+docker-compose -f docker-compose.test.yml down
+```
+
+See [test/README.md](test/README.md) for detailed testing documentation.
+
 ## Requirements
 
 - Node.js >= 18.0.0
 - PostgreSQL or MySQL database
+- Docker (optional, for testing)
 
 ## License
 

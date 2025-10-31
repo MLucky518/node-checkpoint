@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import { pathToFileURL } from 'url';
 
 /**
  * Scans the migrations directory and returns a sorted list of migration files
@@ -27,8 +28,9 @@ export async function scanMigrations(migrationsDir) {
  * @throws {Error} If migration file cannot be loaded
  */
 export async function loadMigration(migrationsDir, filename) {
-  const filepath = path.join(migrationsDir, filename);
-  const module = await import(`file://${filepath}`);
+  const filepath = path.resolve(migrationsDir, filename);
+  const fileUrl = pathToFileURL(filepath).href;
+  const module = await import(fileUrl);
   return module.default || module;
 }
 
